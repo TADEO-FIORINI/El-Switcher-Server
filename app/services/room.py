@@ -48,4 +48,4 @@ def room_private_to_public(room_private: RoomPrivate) -> RoomPublic:
 async def force_delete_room_after(room_id: str, delay_seconds: int):
     await asyncio.sleep(delay_seconds)
     delete_room(room_id)
-    await manager.broadcast_global(f"room_expired: {room_id}")
+    await manager.broadcast_to_room(room_id, f"room_expired: {room_id}")
