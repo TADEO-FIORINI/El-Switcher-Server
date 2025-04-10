@@ -1,9 +1,6 @@
 # entorno virtual
 venv*
 
-# base de datos
-*.db
-
 # python
 __pycache__
 .pytest_cache

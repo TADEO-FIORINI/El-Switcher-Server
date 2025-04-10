@@ -21,7 +21,7 @@ async def create_room_endpoint(user_id: str, room_name: str):
     await manager.join_room_broadcast(user_id, room.room_id)
     await manager.broadcast_global(f"room_created: {room.room_id}")
 
-    asyncio.create_task(force_delete_room_after(room.room_id, delay_seconds=5))
+    asyncio.create_task(force_delete_room_after(room.room_id, delay_seconds=300))
 
     return room_private_to_public(room)
 
