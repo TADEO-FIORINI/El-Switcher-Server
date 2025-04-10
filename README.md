@@ -41,3 +41,14 @@ uvicorn app.main:app --reload
 ```bash
 pytest
 ```
+
+## Extra
+
+El servidor actualmente esta corriendo en Render. Utilizo el plan gratuito con 512 Mb (RAM). 
+Ademas, los servidores de Render se encuentran en EEUU. 
+Por esto, tenemos una latencia de 1 a 2 segundos.
+
+En el plan gratuito de Render, el servidor entra en estado "sleep" si no recibe una solicitus en un determinado tiempo (15 minutos aprox.), lo que causa que la proxima solicitud tarde mucho mas, ya que tiene que despertar la instancia del servidor.
+
+Para evitar que el servidor entre en modo sleep, configuramos un servicio externo, Uptimerobot, para que llame a la api "ping" cada 5 minutos y evitar que el servidor entre en modo sleep en Render.
+
